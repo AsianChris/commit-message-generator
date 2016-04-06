@@ -15,7 +15,8 @@ class Commit extends Controller
     $commit = Commits::getCommit($args['hash']);
 
     if($commit === null) {
-        throw new NotFoundException($request, $response);
+      $this->logger->error("Commit not found: " . $args['hash']);
+      throw new NotFoundException($request, $response);
     }
 
     $this->view->render($response, 'commit.html', [
