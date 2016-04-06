@@ -1,0 +1,23 @@
+.content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.commit {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+.commit-message {
+  font-family: 'Inconsolata' ;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.commit-permalink a {
+  color: #808080;
+  text-decoration: none;
+}
+.commit-permalink a:hover {
+  text-decoration: underline;
+}
