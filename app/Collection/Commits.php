@@ -21,7 +21,7 @@ class Commits
 
   public static function getRandomCommit() {
     $min = 0;
-    $max = count(self::$commits);
+    $max = count(self::$commits) - 1;
 
     $randomIndex = rand($min, $max);
 
@@ -48,10 +48,10 @@ class Commits
 
     while(!feof($myfile)) {
       $msg = fgets($myfile);
+
       $msg = str_replace(array("\r", "\n"), '', $msg);
 
-      if($msg !== '') {
-
+      if(!empty($msg)) {
         $commit = new Commit();
         $commit->message = $msg;
         $commit->hash = hash('md5', $msg);
