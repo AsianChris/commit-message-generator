@@ -12,10 +12,6 @@ class Commits
 
   public static function init() {
     self::$dataDir =  dirname(__FILE__) . '/../../data/';
-    self::$dataFiles = [
-      'commit_messages.txt',
-      'south_park_quotes.txt'
-    ];
 
     self::setCommits();
   }
@@ -49,7 +45,9 @@ class Commits
   private static function setCommits() {
     self::$commits = [];
 
-    foreach(self::$dataFiles as $file) {
+    $files = scandir(self::$dataDir);
+
+    foreach($files as $file) {
       self::openFile($file);
     }
   }
