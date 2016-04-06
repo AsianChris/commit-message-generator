@@ -36,6 +36,10 @@ $container[App\Controller\HomePage::class] = function ($c) {
     return new App\Controller\HomePage($c->get('view'), $c->get('logger'));
 };
 
+$container[App\Controller\CommitText::class] = function ($c) {
+    return new App\Controller\CommitText($c->get('view'), $c->get('logger'));
+};
+
 $container[App\Controller\Commit::class] = function ($c) {
     return new App\Controller\Commit($c->get('view'), $c->get('logger'));
 };

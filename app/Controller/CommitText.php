@@ -8,15 +8,13 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 use App\Collection\Commits as Commits;
 
-class HomePage extends Controller
+class CommitText extends Controller
 {
     public function __invoke(Request $request, Response $response, $args)
     {
         $commit = Commits::getRandomCommit();
 
-        $this->logger->info("Home page action dispatched");
-
-        $this->view->render($response, 'commit.html', [
+        $this->view->render($response, 'commit.txt', [
           'commit' => $commit
           ]);
         return $response;

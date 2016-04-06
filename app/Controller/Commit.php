@@ -16,7 +16,7 @@ class Commit extends Controller
 
         $this->logger->info("Commit dispatched");
 
-        $this->view->render($response, 'home.html', [
+        $this->view->render($response, 'commit.html', [
           'commit' => $commit
           ]);
 
