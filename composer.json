@@ -1,0 +1,16 @@
+{
+    "name": "asianchris/commits",
+    "authors": [
+        {
+            "name": "Chris Baptista",
+            "email": "chris@asianchris.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"App\\": "app/"}
+    },
+    "require": {
+        "slim/slim-skeleton": "^3.0",
+        "slim/twig-view": "^2.1"
+    }
+}
