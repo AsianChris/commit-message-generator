@@ -5,14 +5,19 @@ use App\Model\Commit;
 
 class Commits
 {
-  private static $dataFile;
+  private static $dataDir;
+  private static $dataFiles;
 
   private static $commits;
 
   public static function init() {
-    self::$dataFile = dirname(__FILE__) . '/../../data/commit_messages.txt';
+    self::$dataDir =  dirname(__FILE__) . '/../../data/';
+    self::$dataFiles = [
+      'commit_messages.txt',
+      'south_park_quotes.txt'
+    ];
 
-    self::openFile();
+    self::setCommits();
   }
 
   public static function getCommits() {
@@ -41,10 +46,16 @@ class Commits
     return $return;
   }
 
-  private static function openFile() {
-    $myfile = fopen( self::$dataFile, "r") or die("Unable to open file!");
-
+  private static function setCommits() {
     self::$commits = [];
+
+    foreach(self::$dataFiles as $file) {
+      self::openFile($file);
+    }
+  }
+
+  private static function openFile($file) {
+    $myfile = fopen(self::$dataDir.$file, "r") or die("Unable to open file!");
 
     while(!feof($myfile)) {
       $msg = fgets($myfile);
