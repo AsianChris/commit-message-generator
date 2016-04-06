@@ -4,10 +4,12 @@
 </head>
 
 <body>
-  <div>{{ commit.message }}</div>
+  {% autoescape %}
+  <div>{{ commit.message | raw}}</div>
+  {% endautoescape %}
 
   <div>
-    <a href="{{ commit.hash}}"/>Permalink</a>
+    <a href="{{ commit.hash }}"/>Permalink</a>
   </div>
 </body>
 </html>
