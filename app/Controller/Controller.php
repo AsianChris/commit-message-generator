@@ -10,16 +10,16 @@ use App\Collection\Commits as Commits;
 
 class Controller
 {
-    protected $view;
-    protected $logger;
+  protected $app;
+  protected $view;
+  protected $logger;
 
-    public function __construct(Twig $view, LoggerInterface $logger)
-    {
-        $this->view = $view;
-        $this->logger = $logger;
-    }
+  public function __construct(&$app, Twig $view, LoggerInterface $logger)
+  {
+    $this->app = $app;
+    $this->view = $view;
+    $this->logger = $logger;
+  }
 
-    public function __invoke(Request $request, Response $response, $args)
-    {
-    }
+  public function __invoke(Request $request, Response $response, $args) {}
 }

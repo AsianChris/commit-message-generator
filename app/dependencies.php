@@ -32,14 +32,20 @@ $container['logger'] = function ($c) {
 // -----------------------------------------------------------------------------
 // Action factories
 // -----------------------------------------------------------------------------
-$container[App\Controller\HomePage::class] = function ($c) {
-    return new App\Controller\HomePage($c->get('view'), $c->get('logger'));
+$container[App\Controller\HomePage::class] = function ($c) use ($app) {
+    return new App\Controller\HomePage($app, $c->get('view'), $c->get('logger'));
 };
 
-$container[App\Controller\CommitText::class] = function ($c) {
-    return new App\Controller\CommitText($c->get('view'), $c->get('logger'));
+$container[App\Controller\CommitText::class] = function ($c) use ($app)  {
+    return new App\Controller\CommitText($app, $c->get('view'), $c->get('logger'));
 };
 
-$container[App\Controller\Commit::class] = function ($c) {
-    return new App\Controller\Commit($c->get('view'), $c->get('logger'));
+$container[App\Controller\Commit::class] = function ($c) use ($app)  {
+    return new App\Controller\Commit($app, $c->get('view'), $c->get('logger'));
+};
+
+$container['notFoundHandler'] = function ($c) {
+    return new App\Controller\NotFoundHandler($c->get('view'), function ($request, $response) use ($c) {
+        return $c['response']->withStatus(404);
+    });
 };

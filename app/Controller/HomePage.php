@@ -10,15 +10,14 @@ use App\Collection\Commits as Commits;
 
 class HomePage extends Controller
 {
-    public function __invoke(Request $request, Response $response, $args)
-    {
-        $commit = Commits::getRandomCommit();
+  public function __invoke(Request $request, Response $response, $args)
+  {
+    $commit = Commits::getRandomCommit();
 
-        $this->logger->info("Home page action dispatched");
+    $this->view->render($response, 'commit.html', [
+      'commit' => $commit
+      ]);
 
-        $this->view->render($response, 'commit.html', [
-          'commit' => $commit
-          ]);
-        return $response;
-    }
+    return $response;
+  }
 }
