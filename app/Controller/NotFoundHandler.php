@@ -18,7 +18,7 @@ class NotFoundHandler extends NotFound {
     public function __invoke(Request $request, Response $response) {
         parent::__invoke($request, $response);
 
-        $this->view->render($response, '404.twig');
+        $this->view->render($response, '404.html');
 
         return $response->withStatus(404);
     }
