@@ -58,7 +58,7 @@ class Messages
     while(!feof($myfile)) {
       $msg = fgets($myfile);
 
-      $msg = str_replace(array("\r", "\n"), '', $msg);
+      $msg = trim( str_replace(array("\r", "\n"), '', $msg) );
 
       if(!empty($msg)) {
         $message = new Message();
