@@ -1,1 +1,0 @@
-{% autoescape %}{{ commit.message | raw}}{% endautoescape %}

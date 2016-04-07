@@ -3,8 +3,8 @@
 $app->get('/', App\Controller\HomePage::class)
     ->setName('homepage');
 
-$app->get('/commit.txt', App\Controller\CommitText::class)
-    ->setName('committxt');
+$app->get('/commit-message.txt', App\Controller\MessageText::class)
+    ->setName('messagetxt');
 
-$app->get('/{hash}', App\Controller\Commit::class)
-    ->setName('commit');
+$app->get('/{hash}', App\Controller\Message::class)
+    ->setName('message');

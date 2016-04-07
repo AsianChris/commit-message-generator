@@ -6,21 +6,21 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 use Slim\Exception\NotFoundException;
 
-use App\Collection\Commits as Commits;
+use App\Collection\Messages as Messages;
 
-class Commit extends Controller
+class Message extends Controller
 {
   public function __invoke(Request $request, Response $response, $args)
   {
-    $commit = Commits::getCommit($args['hash']);
+    $message = Messages::getMessage($args['hash']);
 
-    if($commit === null) {
-      $this->logger->error("Commit not found: " . $args['hash']);
+    if($message === null) {
+      $this->logger->error("Message not found: " . $args['hash']);
       throw new NotFoundException($request, $response);
     }
 
-    $this->view->render($response, 'commit.html', [
-      'commit' => $commit
+    $this->view->render($response, 'message.html', [
+      'message' => $message
       ]);
 
     return $response;

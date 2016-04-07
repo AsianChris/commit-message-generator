@@ -4,16 +4,16 @@ namespace App\Controller;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-use App\Collection\Commits as Commits;
+use App\Collection\Messages as Messages;
 
-class CommitText extends Controller
+class MessageText extends Controller
 {
   public function __invoke(Request $request, Response $response, $args)
   {
-    $commit = Commits::getRandomCommit();
+    $message = Messages::getRandomMessage();
 
-    $this->view->render($response, 'commit.txt', [
-      'commit' => $commit
+    $this->view->render($response, 'message.txt', [
+      'message' => $message
       ]);
 
     return $response;

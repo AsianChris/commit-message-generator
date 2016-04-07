@@ -36,12 +36,12 @@ $container[App\Controller\HomePage::class] = function ($c) use ($app) {
     return new App\Controller\HomePage($app, $c->get('view'), $c->get('logger'));
 };
 
-$container[App\Controller\CommitText::class] = function ($c) use ($app)  {
-    return new App\Controller\CommitText($app, $c->get('view'), $c->get('logger'));
+$container[App\Controller\MessageText::class] = function ($c) use ($app)  {
+    return new App\Controller\MessageText($app, $c->get('view'), $c->get('logger'));
 };
 
-$container[App\Controller\Commit::class] = function ($c) use ($app)  {
-    return new App\Controller\Commit($app, $c->get('view'), $c->get('logger'));
+$container[App\Controller\Message::class] = function ($c) use ($app)  {
+    return new App\Controller\Message($app, $c->get('view'), $c->get('logger'));
 };
 
 $container['notFoundHandler'] = function ($c) {

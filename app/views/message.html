@@ -7,13 +7,13 @@
 
 <body>
   <div class="content">
-    <div class="commit">
+    <div class="message">
       {% autoescape %}
-      <div id="commit-message" class="commit-message">{{ commit.message | raw}}</div>
+      <div id="message-message" class="message-message">{{ message.message | raw}}</div>
       {% endautoescape %}
 
-      <div class="commit-permalink">
-        <a href="{{ commit.hash }}"/>Permalink</a>
+      <div class="message-permalink">
+        <a href="{{ message.hash }}"/>Permalink</a>
       </div>
     </div>
   </div>

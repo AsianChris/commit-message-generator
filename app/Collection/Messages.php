@@ -1,40 +1,40 @@
 <?php
 namespace App\Collection;
 
-use App\Model\Commit;
+use App\Model\Message;
 
-class Commits
+class Messages
 {
   private static $dataDir;
   private static $dataFiles;
 
-  private static $commits;
+  private static $messages;
 
   public static function init() {
     self::$dataDir =  dirname(__FILE__) . '/../../data/';
 
-    self::setCommits();
+    self::setMessages();
   }
 
-  public static function getCommits() {
-    return self::$commits;
+  public static function getMessages() {
+    return self::$messages;
   }
 
-  public static function getRandomCommit() {
+  public static function getRandomMessage() {
     $min = 0;
-    $max = count(self::$commits) - 1;
+    $max = count(self::$messages) - 1;
 
     $randomIndex = rand($min, $max);
 
-    return self::$commits[$randomIndex];
+    return self::$messages[$randomIndex];
   }
 
-  public static function getCommit($hash) {
+  public static function getMessage($hash) {
     $return = null;
 
-    foreach(self::$commits as $commit) {
-      if($commit->hash === $hash) {
-        $return = $commit;
+    foreach(self::$messages as $message) {
+      if($message->hash === $hash) {
+        $return = $message;
         break;
       }
     }
@@ -42,8 +42,8 @@ class Commits
     return $return;
   }
 
-  private static function setCommits() {
-    self::$commits = [];
+  private static function setMessages() {
+    self::$messages = [];
 
     $files = scandir(self::$dataDir);
 
@@ -61,11 +61,11 @@ class Commits
       $msg = str_replace(array("\r", "\n"), '', $msg);
 
       if(!empty($msg)) {
-        $commit = new Commit();
-        $commit->message = $msg;
-        $commit->hash = hash('md5', $msg);
+        $message = new Message();
+        $message->message = $msg;
+        $message->hash = hash('md5', $msg);
 
-        self::$commits[] = $commit;
+        self::$messages[] = $message;
       }
 
     }
@@ -75,4 +75,4 @@ class Commits
 }
 
 
-Commits::init();
+Messages::init();

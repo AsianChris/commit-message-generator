@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 
-class Commit
+class Message
 {
   public $hash;
 
