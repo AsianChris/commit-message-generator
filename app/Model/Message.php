@@ -32,7 +32,7 @@ class Message
    *
    * @param string $message
    */
-  public function __construct(\string $message) {
+  public function __construct( $message) {
     $this->setMessage($message);
   }
 
@@ -41,7 +41,7 @@ class Message
    *
    * @param string $message Commit Message
    */
-  public function setMessage(\string $message) {
+  public function setMessage( $message) {
     $this->message = $message;
 
     $this->setHash();
