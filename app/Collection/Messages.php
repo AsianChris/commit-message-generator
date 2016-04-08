@@ -61,9 +61,7 @@ class Messages
       $msg = trim( str_replace(array("\r", "\n"), '', $msg) );
 
       if(!empty($msg)) {
-        $message = new Message();
-        $message->message = $msg;
-        $message->hash = hash('md5', $msg);
+        $message = new Message($msg);
 
         self::$messages[] = $message;
       }
