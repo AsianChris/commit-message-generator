@@ -32,7 +32,11 @@ class Message
    *
    * @param string $message
    */
-  public function __construct( $message) {
+  public function __construct($message = null) {
+    if($message === null) {
+      return;
+    }
+
     $this->setMessage($message);
   }
 
