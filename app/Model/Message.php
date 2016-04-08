@@ -29,8 +29,10 @@ class Message
 
   /**
    * Class Constructor
+   *
+   * @param string $message
    */
-  public function __construct($message) {
+  public function __construct(string $message) {
     $this->setMessage($message);
   }
 
@@ -39,7 +41,7 @@ class Message
    *
    * @param string $message Commit Message
    */
-  public function setMessage($message) {
+  public function setMessage(string $message) {
     $this->message = $message;
 
     $this->setHash();
