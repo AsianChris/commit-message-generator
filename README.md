@@ -7,8 +7,10 @@ This is a Slim Application that generates random commit messages.
 ## Installation
 
 ```
-$ git clone https://github.com/AsianChris/commit-message-generator.git
+$ git clone https://github.com/AsianChris/commit-message-generator.git commit-message-generator
+$ cd commit-message-generator
 $ composer install
+$ chmod 777 -R storage/*
 ```
 
 ## Usage
