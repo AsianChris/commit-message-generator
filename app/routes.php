@@ -1,5 +1,10 @@
 <?php
-// Routes
+/**
+* Routes
+*
+* @author Chris Baptista
+*/
+
 $app->get('/', App\Controller\HomePage::class)
     ->setName('homepage');
 

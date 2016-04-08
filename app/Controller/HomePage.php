@@ -1,4 +1,10 @@
 <?php
+/**
+* Home Page
+*
+* @author Chris Baptista
+*/
+
 namespace App\Controller;
 
 use Slim\Views\Twig;
@@ -8,9 +14,22 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 use App\Collection\Messages as Messages;
 
-class HomePage extends Controller
-{
-  public function __invoke(Request $request, Response $response, $args)
+/**
+* Home Page Controller
+*
+* @package App\Controller;
+*/
+class HomePage extends Controller {
+  /**
+   * Invoke Function
+   *
+   * @param Request $request
+   * @param Response $response
+   * @param array $args
+   *
+   * @return Response
+   */
+  public function __invoke(Request $request, Response $response, array $args)
   {
     $message = Messages::getRandomMessage();
 

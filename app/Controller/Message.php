@@ -1,4 +1,10 @@
 <?php
+/**
+* Message
+*
+* @author Chris Baptista
+*/
+
 namespace App\Controller;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -8,9 +14,22 @@ use Slim\Exception\NotFoundException;
 
 use App\Collection\Messages as Messages;
 
-class Message extends Controller
-{
-  public function __invoke(Request $request, Response $response, $args)
+/**
+* Message Controller
+*
+* @package App\Controller;
+*/
+class Message extends Controller {
+  /**
+   * Invoke Function
+   *
+   * @param Request $request
+   * @param Response $response
+   * @param array $args
+   *
+   * @return Response
+   */
+  public function __invoke(Request $request, Response $response, array $args)
   {
     $message = Messages::getMessage($args['hash']);
 

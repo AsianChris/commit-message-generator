@@ -1,4 +1,10 @@
 <?php
+/**
+* Application Settings
+*
+* @author Chris Baptista
+*/
+
 return [
     'settings' => [
         // Slim Settings

@@ -1,4 +1,10 @@
 <?php
+/**
+* Application Dependencies
+*
+* @author Chris Baptista
+*/
+
 // DIC configuration
 $container = $app->getContainer();
 
