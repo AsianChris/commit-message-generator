@@ -40,6 +40,12 @@ class Controller {
   protected $logger;
 
   /**
+   * In Production Envionment
+   * @var bool $inProduction'
+   */
+  protected $inProduction;
+
+  /**
    * Class Constructor
    *
    * @param App $app
@@ -51,6 +57,7 @@ class Controller {
     $this->app = $app;
     $this->view = $view;
     $this->logger = $logger;
+    $this->inProduction = (getenv("APP_ENV") === "PRODUCTION") ? true : false;
   }
 
   /**

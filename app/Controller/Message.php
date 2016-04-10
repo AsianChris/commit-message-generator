@@ -39,6 +39,7 @@ class Message extends Controller {
     }
 
     $this->view->render($response, 'message.html', [
+      'inProduction' => $this->inProduction,
       'message' => $message
       ]);
 

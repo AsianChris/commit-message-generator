@@ -34,6 +34,7 @@ class HomePage extends Controller {
     $message = Messages::getRandomMessage();
 
     $this->view->render($response, 'message.html', [
+      'inProduction' => $this->inProduction,
       'message' => $message
       ]);
 
