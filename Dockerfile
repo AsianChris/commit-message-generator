@@ -10,6 +10,7 @@ EXPOSE 80
 RUN apt-get -qq update \
     && apt-get -qq install -y \
 	git \
+	zip \
 	apache2 \
 	php \
 	php-common \
