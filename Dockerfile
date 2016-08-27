@@ -4,6 +4,8 @@ MAINTAINER Chris Baptista <chris@asianchris.com>
 
 WORKDIR /var/www/html
 
+EXPOSE 80
+
 # Install Services
 RUN apt-get -qq update \
     && apt-get -qq install -y \
